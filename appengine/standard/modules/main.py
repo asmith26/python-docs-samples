@@ -38,6 +38,7 @@ class GetBackendHandler(webapp2.RequestHandler):
     def get(self):
         # [START access_another_module]
         backend_hostname = modules.get_hostname(module='my-backend')
+        print backend_hostname
         url = "http://{}/".format(backend_hostname)
         try:
             result = urllib2.urlopen(url).read()

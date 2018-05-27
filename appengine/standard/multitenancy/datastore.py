@@ -20,6 +20,7 @@ For more information, see README.md.
 """
 
 # [START all]
+import logging
 from google.appengine.api import namespace_manager
 from google.appengine.ext import ndb
 import webapp2
@@ -52,6 +53,7 @@ class DatastoreCounterHandler(webapp2.RequestHandler):
 
         # Save the current namespace.
         previous_namespace = namespace_manager.get_namespace()
+        logging.warning(previous_namespace)
         try:
             namespace_manager.set_namespace(namespace)
             namespace_count = update_counter('counter')
